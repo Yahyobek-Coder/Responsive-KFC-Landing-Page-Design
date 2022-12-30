@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KFC Landing Page | Responsive Design</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <section class="main">
+        <header>
+            <a href="#"><img src="images/logo.png" class="logo"></a>
+            <div class="toggle"></div>
+            <ul class="navigation">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </header>
+        <div class="content">
+            <div class="text">
+                <h2>Its Finger<br>Lickin <span>Good.</span></h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit natus voluptas, ex praesentium earum debitis!
+                Nemo rerum laboriosam illo ut accusantium rem beatae aperiam, laborum, adipisci doloribus harum earum temporibus?
+                Lorem ipsum dolor sit amet consectetur.</p>
+                <a href="#" class="btn">Order Now</a>
+            </div>
+            <div class="slider">
+                <div class="slides active">
+                    <img src="images/burger_fries.png">
+                </div>
+                <div class="slides">
+                    <img src="images/french_fries.png">
+                </div>
+                <div class="slides">
+                    <img src="images/burger.png">
+                </div>
+                <div class="slides">
+                    <img src="images/fried_chicken.png">
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <ul class="sci">
+                <li><a href="#"><img src="images/facebook.png"></a></li>
+                <li><a href="#"><img src="images/twitter.png"></a></li>
+                <li><a href="#"><img src="images/instagram.png"></a></li>
+            </ul>
+            <div class="prevNext">
+                <p>Always Fresh</p>
+                <span class="prev"><img src="images/left.png"></span>
+                <span class="next"><img src="images/right.png"></span>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        //toggle
+        const menutoggle = document.querySelector('.toggle');
+        const navigation = document.querySelector('.navigation');
+        menutoggle.onclick = function(){
+            menutoggle.classList.toggle('active')
+            navigation.classList.toggle('active')
+        }
+
+        //slider
+        const slides = document.querySelectorAll('.slides');
+        const prev = document.querySelector('.prev');
+        const next = document.querySelector('.next');
+
+        i = 0;
+
+        function ActiveSlide(n){
+            for(slide of slides)
+            slide.classList.remove('active');
+            slides[n].classList.add('active');
+        }
+
+        // function for next btn
+        next.addEventListener('click', function(){
+            if(i == slides.length - 1){
+                i = 0;
+                ActiveSlide(i);
+            }
+            else
+            {
+                i++;
+                ActiveSlide(i);
+            }
+        })
+
+
+        // function for prev btn
+        prev.addEventListener('click', function(){
+            if(i == 0){
+                i = slides.length - 1;
+                ActiveSlide(i);
+            }
+            else
+            {
+                i--;
+                ActiveSlide(i);
+            }
+        })
+        
+    </script>
+</body>
+</html>
